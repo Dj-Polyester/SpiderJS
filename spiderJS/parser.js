@@ -52,17 +52,35 @@ class Parser
         
         $('p').each(function(index,item) {
             const str =  $(this).text();
-            
-            const list = str.split(' ');
-            for(let word of list)
+            if(str && str!==undefined)
             {
-                
-                if(word==instance)
+                const list = str.split(' ');
+                for(let word of list)
                 {
-                    ++count;
+
+                    if(word==instance)
+                    {
+                        ++count;
+                    }
                 }
             }
         });
+        $('span').each(function(index,item) {
+            const str =  $(this).text();
+            if(str && str!==undefined)
+            {
+                const list = str.split(' ');
+                for(let word of list)
+                {
+                    if(word==instance)
+                    {
+                        ++count;
+                    }
+                }
+            }
+        });
+
+
         if(count)
         {
             fs.appendFile(FILENAME, ` : Found ${count} instance(s)`, (err) => {
