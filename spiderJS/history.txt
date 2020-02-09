@@ -2,135 +2,145 @@
 Success: http://learnyouahaskell.com/chapters
 Success: http://creativecommons.org/licenses/by-nc-sa/3.0/
 Success: http://learnyouahaskell.com/introduction
-Success: http://learnyouahaskell.com/recursion : Found 1 instance(s)
-Success: http://learnyouahaskell.com/types-and-typeclasses : Found 2 instance(s)
-Success: https://creativecommons.org/policies/
-Success: https://creativecommons.org/website-icons
-Success: http://learnyouahaskell.com/functionally-solving-problems : Found 10 instance(s)
-Success: https://creativecommons.org/
-Success: https://creativecommons.org/use-remix/
-Success: https://creativecommons.org/blog/
-Success: http://learnyouahaskell.com/zippers
-Success: http://learnyouahaskell.com/starting-out
 Success: http://learnyouahaskell.com/syntax-in-functions
-Success: https://creativecommons.org/licenses/by/4.0/
-Success: https://twitter.com/creativecommons
+Success: http://learnyouahaskell.com/types-and-typeclasses : Found 2 instance(s)
+Success: http://learnyouahaskell.com/recursion : Found 1 instance(s)
 Success: https://creativecommons.org/share-your-work/
-Success: https://creativecommons.org/about/contact/
-Success: https://store.creativecommons.org/
-Success: https://creativecommons.org/terms/
-Success: https://creativecommons.org/about/
-Failure: http://learnyouahaskell.com/./deed.bn
-Failure: http://learnyouahaskell.com/./deed.zh
-Failure: http://learnyouahaskell.com/./deed.it
-Failure: http://learnyouahaskell.com/./deed.ro
-Failure: http://learnyouahaskell.com/./deed.en
-Failure: http://learnyouahaskell.com/./deed.fi
-Failure: http://learnyouahaskell.com/./deed.ar
-Failure: http://learnyouahaskell.com/./deed.sv
-Failure: http://learnyouahaskell.com/./deed.id
-Failure: http://learnyouahaskell.com/./deed.eu
-Failure: http://learnyouahaskell.com/./deed.el
-Failure: http://learnyouahaskell.com/./deed.de
-Failure: http://learnyouahaskell.com/./deed.lt
-Failure: http://learnyouahaskell.com/./deed.cs
-Failure: http://learnyouahaskell.com/./deed.hr
-Failure: http://learnyouahaskell.com/./deed.sl
-Failure: http://learnyouahaskell.com/./deed.nl
-Failure: http://learnyouahaskell.com/./deed.es
-Failure: http://learnyouahaskell.com/./deed.tr
-Failure: http://learnyouahaskell.com/./deed.pt_BR
-Failure: http://learnyouahaskell.com/./deed.is
-Failure: http://learnyouahaskell.com/mailto:info@creativecommons.org
-Failure: http://learnyouahaskell.com/./deed.ja
-Failure: http://learnyouahaskell.com/./deed.es_ES
-Failure: http://learnyouahaskell.com/./deed.be
-Failure: http://learnyouahaskell.com/./deed.no
-Failure: http://learnyouahaskell.com/./deed.pt
-Failure: http://learnyouahaskell.com/./deed.hu
-Failure: http://learnyouahaskell.com/./deed.lv
-Failure: http://learnyouahaskell.com/./deed.da
-Success: http://learnyouahaskell.com/
-Failure: http://learnyouahaskell.com/./deed.ca
-Failure: http://learnyouahaskell.com/./deed.gl
-Failure: http://learnyouahaskell.com/./deed.ko
-Failure: http://learnyouahaskell.com/./deed.pl
-Failure: http://learnyouahaskell.com/./deed.ru
-Failure: http://learnyouahaskell.com/./deed.eo
-Failure: http://learnyouahaskell.com/./deed.fr
-Failure: http://learnyouahaskell.com/./deed.fa
-Failure: http://learnyouahaskell.com/./deed.zh_TW
-Failure: http://learnyouahaskell.com/./deed.uk
-Failure: http://learnyouahaskell.com/./deed.ms
-Success: https://creativecommons.org/about/contact
-Failure: http://learnyouahaskell.com//choose/results-one?license_code=by-nc-sa&amp;jurisdiction=&amp;version=3.0&amp;lang=en
-Success: http://learnyouahaskell.com//
-Failure: http://learnyouahaskell.com/legalcode
-Success: http://learnyouahaskell.com/chapters
+Success: https://creativecommons.org/licenses/by/4.0/
+Success: https://creativecommons.org/policies/
 Success: https://creativecommons.org/privacy/
-Success: http://learnyouahaskell.com/modules : Found 2 instance(s)
-Success: http://learnyouahaskell.com/higher-order-functions
-Success: http://learnyouahaskell.com/a-fistful-of-monads : Found 2 instance(s)
-Success: http://learnyouahaskell.com/chapters
-Success: http://learnyouahaskell.com/chapters
-Success: https://network.creativecommons.org/?ref=global-affiliate-network
-Success: http://learnyouahaskell.com/making-our-own-types-and-typeclasses : Found 1 instance(s)
+Success: https://creativecommons.org/use-remix/
+Success: https://store.creativecommons.org/
+Success: https://creativecommons.org/about/contact
+Success: https://creativecommons.org/about/
+Success: https://creativecommons.org/blog/
+Success: https://creativecommons.org/
 Success: http://learnyouahaskell.com/starting-out
-Success: http://learnyouahaskell.com/functors-applicative-functors-and-monoids
-Success: https://search.creativecommons.org/
-Success: https://us.e-activist.com/page/6747/subscribe/1?ea.tracking.id=mailing-list-page
+Success: http://learnyouahaskell.com/higher-order-functions
+Success: http://learnyouahaskell.com/functionally-solving-problems : Found 10 instance(s)
+Success: https://creativecommons.org/website-icons
+Success: http://learnyouahaskell.com/zippers
+Success: https://creativecommons.org/terms/
+Success: https://twitter.com/creativecommons
+Failure: http://learnyouahaskell.com/./deed.lv
+Failure: http://learnyouahaskell.com/./deed.ar
+Failure: http://learnyouahaskell.com/./deed.id
+Failure: http://learnyouahaskell.com/./deed.es
+Failure: http://learnyouahaskell.com/./deed.fi
+Failure: http://learnyouahaskell.com/./deed.zh
+Failure: http://learnyouahaskell.com/./deed.ro
+Failure: http://learnyouahaskell.com/./deed.is
+Failure: http://learnyouahaskell.com/./deed.zh_TW
+Failure: http://learnyouahaskell.com/./deed.gl
+Failure: http://learnyouahaskell.com/./deed.pt
+Failure: http://learnyouahaskell.com/./deed.tr
+Failure: http://learnyouahaskell.com/./deed.cs
+Failure: http://learnyouahaskell.com/./deed.ms
+Failure: http://learnyouahaskell.com/./deed.eu
+Failure: http://learnyouahaskell.com/./deed.ca
+Failure: http://learnyouahaskell.com/./deed.eo
+Failure: http://learnyouahaskell.com/./deed.fa
+Failure: http://learnyouahaskell.com/./deed.it
+Failure: http://learnyouahaskell.com/./deed.bn
+Failure: http://learnyouahaskell.com/./deed.pt_BR
+Failure: http://learnyouahaskell.com/./deed.no
+Failure: http://learnyouahaskell.com/./deed.es_ES
+Failure: http://learnyouahaskell.com/./deed.nl
+Failure: http://learnyouahaskell.com/./deed.en
+Failure: http://learnyouahaskell.com/./deed.hu
+Failure: http://learnyouahaskell.com/./deed.ru
+Failure: http://learnyouahaskell.com/./deed.sl
+Failure: http://learnyouahaskell.com/./deed.ko
+Failure: http://learnyouahaskell.com/mailto:info@creativecommons.org
+Failure: http://learnyouahaskell.com/./deed.hr
+Failure: http://learnyouahaskell.com/./deed.be
+Failure: http://learnyouahaskell.com/./deed.uk
+Success: http://learnyouahaskell.com/
+Failure: http://learnyouahaskell.com/./deed.da
+Failure: http://learnyouahaskell.com/./deed.lt
+Failure: http://learnyouahaskell.com/./deed.ja
+Failure: http://learnyouahaskell.com/legalcode
+Failure: http://learnyouahaskell.com/./deed.el
+Failure: http://learnyouahaskell.com/./deed.sv
+Failure: http://learnyouahaskell.com/./deed.fr
+Success: http://learnyouahaskell.com/chapters
+Failure: http://learnyouahaskell.com//choose/results-one?license_code=by-nc-sa&amp;jurisdiction=&amp;version=3.0&amp;lang=en
+Failure: http://learnyouahaskell.com/./deed.pl
+Success: http://learnyouahaskell.com//
+Success: https://network.creativecommons.org/?ref=global-affiliate-network
+Success: http://learnyouahaskell.com/modules : Found 2 instance(s)
+Success: https://creativecommons.org/about/contact/
+Failure: http://learnyouahaskell.com/./deed.de
+Success: http://learnyouahaskell.com/chapters
+Success: http://learnyouahaskell.com/chapters
+Success: http://learnyouahaskell.com/chapters
+Success: http://learnyouahaskell.com/a-fistful-of-monads : Found 2 instance(s)
+Success: http://learnyouahaskell.com/for-a-few-monads-more : Found 2 instance(s)
+Success: http://learnyouahaskell.com/making-our-own-types-and-typeclasses : Found 1 instance(s)
+Success: http://learnyouahaskell.com/input-and-output : Found 17 instance(s)
+Success: https://wiki.creativecommons.org/Considerations_for_licensors_and_licensees
+Success: https://creativecommons.org/compatiblelicenses
+Success: http://learnyouahaskell.com/starting-out
 Success: http://learnyouahaskell.com/chapters
 Success: http://learnyouahaskell.com/introduction
 Success: http://learnyouahaskell.com/chapters
+Success: http://learnyouahaskell.com/chapters
+Success: http://learnyouahaskell.com/chapters
+Success: https://search.creativecommons.org/
+Success: http://learnyouahaskell.com/types-and-typeclasses
+Success: http://learnyouahaskell.com/recursion
 Success: http://learnyouahaskell.com/syntax-in-functions
-Success: http://learnyouahaskell.com/chapters
-Success: http://learnyouahaskell.com/chapters
-Success: http://learnyouahaskell.com/for-a-few-monads-more : Found 2 instance(s)
-Success: http://learnyouahaskell.com/input-and-output
-Success: https://wiki.creativecommons.org/FAQ : Found 17 instance(s)
-Success: https://wiki.creativecommons.org/Considerations_for_licensors_and_licensees
-Success: https://creativecommons.org/compatiblelicenses
-Success: http://learnyouahaskell.com/chapters
-Success: http://learnyouahaskell.com/chapters
-Success: http://learnyouahaskell.com/chapters
+Success: http://learnyouahaskell.com/syntax-in-functions
+Success: https://us.e-activist.com/page/6747/subscribe/1?ea.tracking.id=mailing-list-page
 Success: https://us.netdonor.net/page/6650/donate/1?ea.tracking.id=deed-top
-Success: http://learnyouahaskell.com/types-and-typeclasses
-Success: http://learnyouahaskell.com/types-and-typeclasses
-Success: http://learnyouahaskell.com/recursion
-Success: http://learnyouahaskell.com/higher-order-functions
-Success: http://learnyouahaskell.com/starting-out
-Success: http://learnyouahaskell.com/syntax-in-functions
 Success: https://creativecommons.org/faq
-Success: http://en.wikipedia.org/wiki/Reverse_Polish_notation
+Success: http://learnyouahaskell.com/functors-applicative-functors-and-monoids
 Success: http://en.wikipedia.org/wiki/Body_mass_index
-Success: https://creativecommons.org/use-remix/search-the-commons/
+Success: https://wiki.creativecommons.org/FAQ
+Success: http://learnyouahaskell.com/types-and-typeclasses
 Success: http://learnyouahaskell.com/recursion
 Success: http://learnyouahaskell.com/chapters
-Success: http://learnyouahaskell.com/chapters
+Success: http://learnyouahaskell.com/starting-out
 Success: http://learnyouahaskell.com/higher-order-functions
+Success: http://en.wikipedia.org/wiki/Reverse_Polish_notation
+Success: https://creativecommons.org/use-remix/search-the-commons/
 Success: http://learnyouahaskell.com/chapters
-Failure: http://learnyouahaskell.com/folds
 Success: http://learnyouahaskell.com/chapters
 Failure: http://learnyouahaskell.com/reverse-polish-notation-calculator
-Success: https://www.facebook.com/creativecommons
+Failure: http://learnyouahaskell.com/folds
+Success: http://learnyouahaskell.com/chapters
+Success: http://learnyouahaskell.com/chapters
 Success: http://www.cygwin.com/
+Success: http://learnyouahaskell.com/chapters
 Success: http://learnyouahaskell.com/modules
-Success: http://learnyouahaskell.com/functionally-solving-problems
-Success: http://learnyouahaskell.com/functors-applicative-functors-and-monoids
+Success: https://www.facebook.com/creativecommons
 Success: http://learnyouahaskell.com/for-a-few-monads-more
-Success: http://learnyouahaskell.com/making-our-own-types-and-typeclasses
-Success: http://learnyouahaskell.com/functionally-solving-problems
+Success: http://learnyouahaskell.com/functors-applicative-functors-and-monoids
+Success: http://learnyouahaskell.com/higher-order-functions
+Success: http://learnyouahaskell.com/input-and-output
 Success: http://learnyouahaskell.com/zippers
-Success: http://learnyouahaskell.com/for-a-few-monads-more
-Success: http://learnyouahaskell.com/a-fistful-of-monads
-Success: http://learnyouahaskell.com/functors-applicative-functors-and-monoids
-Success: http://learnyouahaskell.com/input-and-output
-Success: http://learnyouahaskell.com/modules
-Success: http://learnyouahaskell.com/input-and-output
-Failure: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring/Data-ByteString-Lazy.html
+Success: http://learnyouahaskell.com/functionally-solving-problems
+Success: http://learnyouahaskell.com/functionally-solving-problems
 Success: http://learnyouahaskell.com/making-our-own-types-and-typeclasses
+Success: http://learnyouahaskell.com/modules
 Success: http://learnyouahaskell.com/a-fistful-of-monads
-Success: http://hackage.haskell.org/platform/
-Success: http://www.haskell.org/ghc/docs/latest/html/libraries/
+Success: http://learnyouahaskell.com/a-fistful-of-monads
 Success: http://learnyouahaskell.com/functors-applicative-functors-and-monoids
+Success: http://learnyouahaskell.com/making-our-own-types-and-typeclasses
+Success: http://learnyouahaskell.com/input-and-output
+Success: http://learnyouahaskell.com/functors-applicative-functors-and-monoids
+Success: http://learnyouahaskell.com/for-a-few-monads-more
+Failure: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring/Data-ByteString-Lazy.html
+Success: http://www.haskell.org/ghc/docs/latest/html/libraries/
+Success: http://hackage.haskell.org/platform/
 Success: http://haskell.org/hoogle
+Found 0 total
+
+Found 0 total
+
+Found 0 total
+Found 0 total
+Found 0 total
+Found 37 total
+Found 37 total
+Found 37 total
