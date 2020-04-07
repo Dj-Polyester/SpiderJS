@@ -1,20 +1,34 @@
 import os
-
+import sys
 def getIn():
-    data = input("Please input the word you would like to search for. CTRL+C to exit.\n")
-    command= "node scrape.js {}".format(data)
-    print("Searching for main...")
-    os.system(command)
-    print("Done!")
+    try:
+        data = input("Please input the word you would like to search for. CTRL+C to exit.\n")
+        command= "node scrape.js {}".format(data)
+        print("Searching for {}...".format(data))
+        #clean the file
+        formatName=getFileFormat()
+        f=open(data+formatName,"w+")
+        f.close()
+        os.system(command)
+        print("\nDone!")
+        return data
+    except KeyboardInterrupt:
+        print("Exiting...")
+        sys.exit(0)
 
-def getTotal():
-    fileNameContents=open("filename.js")
+def getFileFormat():
+    fileNameContents=open("fileformat.js","r")
     rawName=fileNameContents.readline().split("=")[1]
-    fileName=rawName.strip()
-    fileName=fileName.strip("\"")
+    formatName=rawName.strip()
+    formatName=formatName.strip("\"")
     fileNameContents.close()
 
-    f=open(fileName,"r+")
+    return formatName
+
+def getTotal(data):
+    formatName=getFileFormat()
+
+    f=open(data+formatName,"r+")
     sum=0
     for line in f:
         alist=line.split(" ")
@@ -26,5 +40,4 @@ def getTotal():
     f.close()
 
 if __name__ == "__main__":
-    getIn()
-    getTotal()
+    getTotal(getIn())

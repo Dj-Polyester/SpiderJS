@@ -1,6 +1,6 @@
 const request = require("request");
 const cheerio = require("cheerio");
-const FILENAME = require("./filename.js");
+const FILEFORMAT = require("./fileformat.js");
 const fs = require("fs");
 const http = require("http");
 const set_queue = require("./set_queue");
@@ -20,44 +20,64 @@ class Spider
     start(search_word)
     {
         this.search_word=search_word;
+        
         this.send_request(this.url,this.depth);
     }
+    assert(URL, word)
+    {
+        fs.appendFile(this.search_word+FILEFORMAT, `\n${word}: ${URL}`, (err) => {
+            if (err) throw err;
+        });
+        process.stdout.write(`\n${word}: ${URL}`);
+    }
+
     send_request(URL,depth_level)
     {
-        var self=this;
-        
-        var options = {
-            url: URL,
-            headers: {
-              'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0'
-            }
-          };
-        
-        request(options, function(error, response, html) {
-            //no error
-            if(!error && response.statusCode == 200)
-            {
-                fs.appendFile(FILENAME, `\nSuccess: ${options["url"]}`, (err) => {
-                    if (err) throw err;
-                });
-                process.stdout.write(`\nSuccess: ${options["url"]}`);
-                const $ = cheerio.load(html);
-                
-                return Promise.resolve().then(()=> {
-                    self.crawl($,options["url"],depth_level);
-                });
-            }
+        if(this.parser.is_local(URL))
+        {
+            if(URL.slice(0,7)==="file://")
+                url_tmp = URL.slice(7,URL.length);
             else
-            {
-                fs.appendFile(FILENAME, `\nFailure: ${options["url"]}`, (err) => {
-                    if (err) throw err;
-                });
-                process.stdout.write(`\nFailure: ${options["url"]}`);
-            }
-        });
+                url_tmp = URL;
+
+           //taken from https://stackoverflow.com/a/20665078/10713877
+           const $ = cheerio.load(fs.readFileSync(url_tmp));
+           //Do something
+           console.log($.text())
+        }
+        else
+        {
+            var self=this;
         
-        
+            var options = {
+                url: URL,
+                headers: {
+                  'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0'
+                }
+              };
+          
+            request(options, function(error, response, html) {
+                //no error
+                if(!error && response.statusCode == 200)
+                {
+                    self.assert(URL,"Success");
+
+                    const $ = cheerio.load(html);
+
+
+                    return Promise.resolve().then(()=> {
+                        self.crawl($,URL,depth_level);
+                    });
+                }
+                else
+                {
+
+                    self.assert(URL,"Failure");
+                }
+            });
+        }
     }
+
     crawl($,current_page,depth_level)
     {
         var self=this;
@@ -67,8 +87,6 @@ class Spider
             //get links
             if($('a').length)
             {
-                
-                
                 $('a').each(function(index) {
 
                     //get href
@@ -83,7 +101,7 @@ class Spider
                     }
                 });
                 
-                self.parser.search($,self.search_word,current_page);
+                self.parser.search($,self.search_word,current_page,self.search_word);
                 while( !(self.set_q.isEmpty) )
                 {
                     let link = self.set_q.dequeue();
