@@ -1,6 +1,6 @@
 const request = require("request");
 const cheerio = require("cheerio");
-const FILENAME = require("./filename.js");
+const FILEFORMAT = require("./fileformat.js");
 const fs = require("fs");
 const http = require("http");
 const set_queue = require("./set_queue");
@@ -20,7 +20,15 @@ class Spider
     start(search_word)
     {
         this.search_word=search_word;
+        
         this.send_request(this.url,this.depth);
+    }
+    assert(URL, word)
+    {
+        fs.appendFile(this.search_word+FILEFORMAT, `\n${word}: ${URL}`, (err) => {
+            if (err) throw err;
+        });
+        process.stdout.write(`\n${word}: ${URL}`);
     }
     send_request(URL,depth_level)
     {
@@ -37,22 +45,19 @@ class Spider
             //no error
             if(!error && response.statusCode == 200)
             {
-                fs.appendFile(FILENAME, `\nSuccess: ${options["url"]}`, (err) => {
-                    if (err) throw err;
-                });
-                process.stdout.write(`\nSuccess: ${options["url"]}`);
+                self.assert(URL,"Success");
+
                 const $ = cheerio.load(html);
                 
+                
                 return Promise.resolve().then(()=> {
-                    self.crawl($,options["url"],depth_level);
+                    self.crawl($,URL,depth_level);
                 });
             }
             else
             {
-                fs.appendFile(FILENAME, `\nFailure: ${options["url"]}`, (err) => {
-                    if (err) throw err;
-                });
-                process.stdout.write(`\nFailure: ${options["url"]}`);
+                
+                self.assert(URL,"Failure");
             }
         });
         
@@ -67,8 +72,6 @@ class Spider
             //get links
             if($('a').length)
             {
-                
-                
                 $('a').each(function(index) {
 
                     //get href
@@ -83,7 +86,7 @@ class Spider
                     }
                 });
                 
-                self.parser.search($,self.search_word,current_page);
+                self.parser.search($,self.search_word,current_page,self.search_word);
                 while( !(self.set_q.isEmpty) )
                 {
                     let link = self.set_q.dequeue();

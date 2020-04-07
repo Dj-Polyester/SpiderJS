@@ -1,10 +1,12 @@
 const Spider = require("./spider");
 const Parser = require("./parser");
-const FILENAME = require("./filename.js");
+const FILEFORMAT = require("./fileformat.js");
+const LINK = require("./link");
 const async = require("async");
 const fs = require("fs");
 const DEPTH = 2;
 const parser = new Parser();
+
 
 /////////////
 //get input//
@@ -47,7 +49,7 @@ function input()
 
 function Search(word)
 {
-    const spider= new Spider("http://learnyouahaskell.com/chapters",DEPTH,parser);
+    const spider= new Spider(LINK,DEPTH,parser);
     spider.start(word);
     
 }
@@ -64,9 +66,9 @@ function assert()
 
 //input();
 
-fs.writeFile(FILENAME,'', (err) => {
-    if (err) throw err;
-});
+// fs.writeFile(process.argv[2]+FILEFORMAT,'', (err) => {
+//     if (err) throw err;
+// });
 Search(process.argv[2]);
 
 

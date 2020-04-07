@@ -1,5 +1,5 @@
 const filter = require("./filter");
-const FILENAME = require("./filename.js");
+const FILEFORMAT = require("./fileformat.js");
 const fs = require("fs");
 
 //overwrite string 
@@ -46,49 +46,19 @@ class Parser
     }
 
     //find instance(s) of a word
-    search($,instance,current_page)
+    search($,instance,current_page,key)
     {
-        let count = 0;
+        var domstr = $.text();
+        var pattern = new RegExp(key,"gi");
+        let count = ((domstr.match(pattern)) || []).length
         
-        $('p').each(function(index,item) {
-            const str =  $(this).text();
-            if(str && str!==undefined)
-            {
-                const list = str.split(' ');
-                for(let word of list)
-                {
-
-                    if(word==instance)
-                    {
-                        ++count;
-                    }
-                }
-            }
-        });
-        $('span').each(function(index,item) {
-            const str =  $(this).text();
-            if(str && str!==undefined)
-            {
-                const list = str.split(' ');
-                for(let word of list)
-                {
-                    if(word==instance)
-                    {
-                        ++count;
-                    }
-                }
-            }
-        });
-
-
         if(count)
         {
-            fs.appendFile(FILENAME, ` : Found ${count} instance(s)`, (err) => {
+            fs.appendFile(key+FILEFORMAT, ` : Found ${count} instance(s)`, (err) => {
                 if (err) throw err;
             });
             process.stdout.write(` : Found ${count} instance(s)`);
         }
-        
             
         this.total+=count;
     }
