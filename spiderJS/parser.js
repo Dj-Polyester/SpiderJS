@@ -54,7 +54,7 @@ class Parser
         
         if(count)
         {
-            fs.appendFile(key+FILEFORMAT, ` : Found ${count} instance(s)`, (err) => {
+            fs.appendFile("logs/"+key+FILEFORMAT, ` : Found ${count} instance(s)`, (err) => {
                 if (err) throw err;
             });
             process.stdout.write(` : Found ${count} instance(s)`);
