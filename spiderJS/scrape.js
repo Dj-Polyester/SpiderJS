@@ -69,7 +69,8 @@ function assert()
 // fs.writeFile(process.argv[2]+FILEFORMAT,'', (err) => {
 //     if (err) throw err;
 // });
-Search(process.argv[2]);
+
+Search(process.argv.slice(2).join(" "));
 
 
 
