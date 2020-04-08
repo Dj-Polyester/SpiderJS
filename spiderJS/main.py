@@ -9,15 +9,22 @@ def getIn():
         data = input("Please input the word you would like to search for. CTRL+C to exit.\n")
         command= "node scrape.js {} {}".format(url,data)
         print("Searching for {}...".format(data))
-        #clean the file
+        
         formatName=getFileFormat()
         parsed_uri = urlparse(url)
         domain = parsed_uri.netloc.split(".")[0]
-        f=open("logs/"+domain+"/"+data+formatName,"w+")
+        dirName = "logs/"+domain
+        filePath = dirName+"/"+data+formatName
+        
+        if not os.path.exists(dirName):
+            os.mkdir(dirName)
+        #clean the file
+        f=open(filePath,"w+")
         f.close()
+
         os.system(command)
         print("\nDone!")
-        return (data,domain)
+        return filePath
     except KeyboardInterrupt:
         print("Exiting...")
         sys.exit(0)
@@ -28,18 +35,17 @@ def getFileFormat():
     f.close()
     return variables["FILEFORMAT"]
 
-def getTotal(atuple):
-    formatName=getFileFormat()
-    data=atuple[0]
-    domain=atuple[1]
+def getTotal(filePath):
 
-    f=open("logs/"+domain+"/"+data+formatName,"r+")
+    f=open(filePath,"r+")
     sum=0
     for line in f:
         alist=line.split(" ")
+        
         if len(alist) > 4:
-            num = int(alist[4])
-            sum+=num
+            if len(alist) > 8:
+                sum+=int(alist[8])
+            sum+=int(alist[4])
     f.write("\nFound {} total".format(sum))
     print("\nFound {} total".format(sum))
     f.close()

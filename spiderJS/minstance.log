@@ -1,0 +1,68 @@
+
+Success: http://learnyouahaskell.com/chapters : Found 1 instance(s)
+Failure: http://creativecommons.org/licenses/by-nc-sa/3.0/
+Success: http://learnyouahaskell.com/introduction : Found 1 instance(s)
+Success: http://learnyouahaskell.com/recursion : Found 6 instance(s)
+Success: http://learnyouahaskell.com/syntax-in-functions : Found 2 instance(s)
+Success: http://learnyouahaskell.com/types-and-typeclasses : Found 1 instance(s)
+Success: http://learnyouahaskell.com/starting-out : Found 6 instance(s)
+Success: http://learnyouahaskell.com/zippers : Found 1 instance(s)
+Success: http://learnyouahaskell.com/chapters
+Success: http://learnyouahaskell.com/modules : Found 5 instance(s)
+Success: http://learnyouahaskell.com/higher-order-functions : Found 5 instance(s)
+Success: http://learnyouahaskell.com/chapters
+Success: http://learnyouahaskell.com/chapters
+Success: http://learnyouahaskell.com/chapters
+Success: http://learnyouahaskell.com/input-and-output : Found 9 instance(s)
+Success: http://learnyouahaskell.com/for-a-few-monads-more : Found 57 instance(s)
+Success: http://learnyouahaskell.com/starting-out
+Success: http://learnyouahaskell.com/syntax-in-functions
+Success: http://learnyouahaskell.com/recursion
+Success: http://learnyouahaskell.com/introduction
+Success: http://learnyouahaskell.com/chapters
+Success: http://learnyouahaskell.com/chapters
+Success: http://learnyouahaskell.com/types-and-typeclasses
+Success: http://learnyouahaskell.com/functors-applicative-functors-and-monoids : Found 150 instance(s)
+Success: http://learnyouahaskell.com/higher-order-functions
+Success: http://learnyouahaskell.com/types-and-typeclasses
+Success: http://learnyouahaskell.com/chapters
+Success: http://learnyouahaskell.com/syntax-in-functions
+Success: http://learnyouahaskell.com/starting-out
+Success: http://learnyouahaskell.com/chapters
+Success: http://en.wikipedia.org/wiki/Body_mass_index
+Success: http://www.cygwin.com/
+Success: http://learnyouahaskell.com/chapters
+Success: http://learnyouahaskell.com/chapters
+Failure: http://learnyouahaskell.com/folds
+Failure: http://learnyouahaskell.com/reverse-polish-notation-calculator
+Success: http://learnyouahaskell.com/recursion
+Success: http://learnyouahaskell.com/chapters
+Success: http://learnyouahaskell.com/for-a-few-monads-more
+Success: http://learnyouahaskell.com/higher-order-functions
+Success: http://learnyouahaskell.com/making-our-own-types-and-typeclasses : Found 100 instance(s)
+Success: http://learnyouahaskell.com/functionally-solving-problems
+Success: http://learnyouahaskell.com/zippers
+Success: http://learnyouahaskell.com/modules
+Success: http://learnyouahaskell.com/functionally-solving-problems : Found 4 instance(s)
+Success: http://learnyouahaskell.com/functionally-solving-problems
+Success: http://learnyouahaskell.com/making-our-own-types-and-typeclasses
+Success: http://hackage.haskell.org/platform/
+Success: http://learnyouahaskell.com/a-fistful-of-monads
+Success: http://learnyouahaskell.com/a-fistful-of-monads : Found 20 instance(s)
+Failure: http://www.haskell.org/ghc/docs/latest/html/libraries/bytestring/Data-ByteString-Lazy.html
+Success: http://learnyouahaskell.com/chapters
+Success: http://learnyouahaskell.com/a-fistful-of-monads
+Success: http://learnyouahaskell.com/making-our-own-types-and-typeclasses
+Success: http://learnyouahaskell.com/functors-applicative-functors-and-monoids
+Success: http://learnyouahaskell.com/chapters
+Success: http://learnyouahaskell.com/chapters
+Success: http://www.haskell.org/ghc/docs/latest/html/libraries/
+Success: http://en.wikipedia.org/wiki/Reverse_Polish_notation
+Success: http://learnyouahaskell.com/modules
+Success: http://haskell.org/hoogle
+Success: http://learnyouahaskell.com/input-and-output
+Success: http://learnyouahaskell.com/input-and-output
+Success: http://learnyouahaskell.com/for-a-few-monads-more
+Success: http://learnyouahaskell.com/functors-applicative-functors-and-monoids
+Success: http://learnyouahaskell.com/functors-applicative-functors-and-monoids
+Found 368 total

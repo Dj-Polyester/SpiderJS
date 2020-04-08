@@ -69,15 +69,6 @@ function Search(url, word)
     spider.start(word);
     
 }
-//doesnt work
-function assert()
-{
-    const total = parser.totalWords;
-    if(total)
-        console.log(`Found ${total} total`) ;
-    else
-        console.log("Could not find any.");
-}
 
 Search(process.argv[2],process.argv.slice(3).join(" "));
 
