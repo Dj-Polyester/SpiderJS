@@ -7,8 +7,8 @@ def getIn():
         print("Searching for {}...".format(data))
         #clean the file
         formatName=getFileFormat()
-        # f=open("logs/"+data+formatName,"w+")
-        # f.close()
+        f=open("logs/"+data+formatName,"w+")
+        f.close()
         os.system(command)
         print("\nDone!")
         return data
