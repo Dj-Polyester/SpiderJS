@@ -8,4 +8,5 @@ The program creates a spider (multithreading on progress), that searches for a g
 until the given tree depth, by the user.
 
 **v1.0.1** Spider can also crawl in local files (relative-absolute independent).
+
 **v1.0.2** External data is accumulated in a single json file (neater)
