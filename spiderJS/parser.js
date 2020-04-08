@@ -1,6 +1,6 @@
 const filter = require("./filter");
-const FILEFORMAT = require("./fileformat.js");
 const fs = require("fs");
+const url = require("url");
 
 //overwrite string 
 String.prototype.isIn = function(elem) {
@@ -18,15 +18,28 @@ class Parser
     constructor()
     {
         this.total=0;
+        
     }
-
+    setup(URL)
+    {
+        this.domain = url.parse(URL).host.split(".")[0];
+        fs.readFile('var.json', (err, data) => {
+            if (err) throw err;
+            let variables = JSON.parse(data);
+            this.fileformat = variables["FILEFORMAT"];
+        });
+    }
     //taken from https://stackoverflow.com/a/19709846/10713877
     is_absolute(url)
     {
         var r = new RegExp('^(?:[a-z]+:)?//', 'i');
         return r.test(url);
     }
-
+    is_local(url)
+    {
+        var r = new RegExp('^(?:file:)?//', 'i');
+        return (r.test(url) || !this.is_absolute(url));
+    }
     //gives the full link given the current page as base_url, href element as page_url
     form_link(base_url,page_url)
     {
@@ -52,9 +65,11 @@ class Parser
         var pattern = new RegExp(key,"gi");
         let count = ((domstr.match(pattern)) || []).length
         
+        
+
         if(count)
         {
-            fs.appendFile("logs/"+key+FILEFORMAT, ` : Found ${count} instance(s)`, (err) => {
+            fs.appendFile("logs/"+this.domain+"/"+key+this.fileformat, ` : Found ${count} instance(s)`, (err) => {
                 if (err) throw err;
             });
             process.stdout.write(` : Found ${count} instance(s)`);

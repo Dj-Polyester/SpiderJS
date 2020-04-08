@@ -1,10 +1,9 @@
 const request = require("request");
 const cheerio = require("cheerio");
-const FILEFORMAT = require("./fileformat.js");
 const fs = require("fs");
 const http = require("http");
 const set_queue = require("./set_queue");
-
+const url = require("url");
 class Spider
 {
     constructor(url,depth,parser)
@@ -15,54 +14,80 @@ class Spider
         this.url=url;
         this.set_q=new set_queue;
         this.parser=parser;
-        
     }
     start(search_word)
     {
+        this.parser.setup(this.url)
         this.search_word=search_word;
-        
+        this.domain = url.parse(this.url).host.split(".")[0];
+        this.dir = 'logs/'+this.domain;
+        if (!fs.existsSync(this.dir)){
+            fs.mkdirSync(this.dir);
+        }
+
+        fs.readFile('var.json', (err, data) => {
+            if (err) throw err;
+            let variables = JSON.parse(data);
+            this.fileformat = variables["FILEFORMAT"];
+        });
+ 
         this.send_request(this.url,this.depth);
     }
     assert(URL, word)
     {
-        fs.appendFile("logs/"+this.search_word+FILEFORMAT, `\n${word}: ${URL}`, (err) => {
+        fs.appendFile(this.dir+"/"+this.search_word+this.fileformat, `\n${word}: ${URL}`, (err) => {
             if (err) throw err;
         });
         process.stdout.write(`\n${word}: ${URL}`);
     }
+
     send_request(URL,depth_level)
     {
-        var self=this;
-        
-        var options = {
-            url: URL,
-            headers: {
-              'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0'
-            }
-          };
-        
-        request(options, function(error, response, html) {
-            //no error
-            if(!error && response.statusCode == 200)
-            {
-                self.assert(URL,"Success");
-
-                const $ = cheerio.load(html);
-                
-                
-                return Promise.resolve().then(()=> {
-                    self.crawl($,URL,depth_level);
-                });
-            }
+        if(this.parser.is_local(URL))
+        {
+            if(URL.slice(0,7)==="file://")
+                url_tmp = URL.slice(7,URL.length);
             else
-            {
-                
-                self.assert(URL,"Failure");
-            }
-        });
+                url_tmp = URL;
+
+           //taken from https://stackoverflow.com/a/20665078/10713877
+           const $ = cheerio.load(fs.readFileSync(url_tmp));
+           //Do something
+           console.log($.text())
+        }
+        else
+        {
+            var self=this;
         
-        
+            var options = {
+                url: URL,
+                headers: {
+                  'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0'
+                }
+              };
+          
+            request(options, function(error, response, html) {
+                //no error
+                if(!error && response.statusCode == 200)
+                {
+                    self.assert(URL,"Success");
+
+                    const $ = cheerio.load(html);
+
+
+                    return Promise.resolve().then(()=> {
+                        self.crawl($,URL,depth_level);
+                    });
+                }
+                else
+                {
+
+                    self.assert(URL,"Failure");
+                }
+            });
+        }
     }
+
     crawl($,current_page,depth_level)
     {
         var self=this;

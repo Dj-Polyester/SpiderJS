@@ -1,7 +1,5 @@
 const Spider = require("./spider");
 const Parser = require("./parser");
-const FILEFORMAT = require("./fileformat.js");
-const LINK = require("./link");
 const async = require("async");
 const fs = require("fs");
 const DEPTH = 2;
@@ -45,18 +43,35 @@ function input()
     });
 }
 
-
-
-function Search(word)
+function isIn(alist,val)
 {
-    const spider= new Spider(LINK,DEPTH,parser);
+    for(let item of alist)
+    {
+        if(item==val) 
+            return true;
+    }
+    return false;
+}
+
+function Search(url, word)
+{
+    fs.readFile('var.json', (err, data) => {
+        if (err) throw err;
+        let variables = JSON.parse(data);
+        
+        if (!isIn(variables["LINKS"],url)) 
+        {
+            variables["LINKS"].push(url);
+            fs.writeFileSync('var.json', JSON.stringify(variables));
+        } 
+    });
+    const spider= new Spider(url,DEPTH,parser);
     spider.start(word);
     
 }
 //doesnt work
 function assert()
 {
-    
     const total = parser.totalWords;
     if(total)
         console.log(`Found ${total} total`) ;
@@ -64,13 +79,7 @@ function assert()
         console.log("Could not find any.");
 }
 
-//input();
-
-// fs.writeFile(process.argv[2]+FILEFORMAT,'', (err) => {
-//     if (err) throw err;
-// });
-
-Search(process.argv.slice(2).join(" "));
+Search(process.argv[2],process.argv.slice(3).join(" "));
 
 
 

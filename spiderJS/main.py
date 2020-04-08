@@ -1,34 +1,39 @@
 import os
 import sys
+import json
+from urllib.parse import urlparse
+
 def getIn():
     try:
+        url = input("Please input the url you would like to search for. CTRL+C to exit.\n")
         data = input("Please input the word you would like to search for. CTRL+C to exit.\n")
-        command= "node scrape.js {}".format(data)
+        command= "node scrape.js {} {}".format(url,data)
         print("Searching for {}...".format(data))
         #clean the file
         formatName=getFileFormat()
-        f=open("logs/"+data+formatName,"w+")
-        f.close
+        parsed_uri = urlparse(url)
+        domain = parsed_uri.netloc.split(".")[0]
+        f=open("logs/"+domain+"/"+data+formatName,"w+")
+        f.close()
         os.system(command)
         print("\nDone!")
-        return data
+        return (data,domain)
     except KeyboardInterrupt:
         print("Exiting...")
         sys.exit(0)
 
 def getFileFormat():
-    fileNameContents=open("fileformat.js","r")
-    rawName=fileNameContents.readline().split("=")[1]
-    formatName=rawName.strip()
-    formatName=formatName.strip("\"")
-    fileNameContents.close()
+    f=open("var.json","+r")
+    variables=json.loads(f.read())
+    f.close()
+    return variables["FILEFORMAT"]
 
-    return formatName
-
-def getTotal(data):
+def getTotal(atuple):
     formatName=getFileFormat()
+    data=atuple[0]
+    domain=atuple[1]
 
-    f=open("logs/"+data+formatName,"r+")
+    f=open("logs/"+domain+"/"+data+formatName,"r+")
     sum=0
     for line in f:
         alist=line.split(" ")
