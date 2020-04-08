@@ -25,7 +25,7 @@ class Spider
     }
     assert(URL, word)
     {
-        fs.appendFile(this.search_word+FILEFORMAT, `\n${word}: ${URL}`, (err) => {
+        fs.appendFile("logs/"+this.search_word+FILEFORMAT, `\n${word}: ${URL}`, (err) => {
             if (err) throw err;
         });
         process.stdout.write(`\n${word}: ${URL}`);

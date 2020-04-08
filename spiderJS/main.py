@@ -7,8 +7,8 @@ def getIn():
         print("Searching for {}...".format(data))
         #clean the file
         formatName=getFileFormat()
-        f=open(data+formatName,"w+")
-        f.close()
+        # f=open("logs/"+data+formatName,"w+")
+        # f.close()
         os.system(command)
         print("\nDone!")
         return data
@@ -28,7 +28,7 @@ def getFileFormat():
 def getTotal(data):
     formatName=getFileFormat()
 
-    f=open(data+formatName,"r+")
+    f=open("logs/"+data+formatName,"r+")
     sum=0
     for line in f:
         alist=line.split(" ")
