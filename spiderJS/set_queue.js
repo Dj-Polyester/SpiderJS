@@ -1,24 +1,23 @@
 class set_queue
 {
-    #queue
     constructor()
     {
-        this.#queue=[];
+        this.Q=[];
     }
     
     
     enqueue(val)
     {
         if(!this.isIn(val))
-            this.#queue.push(val);
+            this.Q.push(val);
     }
     dequeue()
     {
-        return this.#queue.shift();
+        return this.Q.shift();
     }
     isIn(val)
     {
-        for(let item of this.#queue)
+        for(let item of this.Q)
         {
             if(item==val) 
                 return true;
@@ -27,12 +26,12 @@ class set_queue
     }
     get queue()
     {
-        return this.#queue;
+        return this.Q;
     }
     get isEmpty()
     {
-        return !(!!+this.#queue.length)
+        return !(!!+this.Q.length)
     }
-}
+};
 
 module.exports=set_queue;
