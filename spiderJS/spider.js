@@ -43,22 +43,25 @@ class Spider
 
     send_request(URL,depth_level)
     {
+        var self=this;
         if(this.parser.is_local(URL))
         {
+            var url_tmp=undefined;
             if(URL.slice(0,7)==="file://")
                 url_tmp = URL.slice(7,URL.length);
             else
                 url_tmp = URL;
-
-           //taken from https://stackoverflow.com/a/20665078/10713877
-           const $ = cheerio.load(fs.readFileSync(url_tmp));
-           //Do something
-           console.log($.text())
+            
+            if (url_tmp===undefined) {
+                console.log("Error: url_tmp is undefined\nat Spider.send_request (/home/polyester/Desktop/Programming/SpiderJS/spiderJS/spider.js:56:43)")
+            } else {
+                //taken from https://stackoverflow.com/a/20665078/10713877
+                const $ = cheerio.load(fs.readFileSync(url_tmp));
+                self.crawl($,depth_level);
+            }
         }
         else
         {
-            var self=this;
-        
             var options = {
                 url: URL,
                 headers: {
@@ -74,21 +77,21 @@ class Spider
 
                     const $ = cheerio.load(html);
 
-
                     return Promise.resolve().then(()=> {
-                        self.crawl($,URL,depth_level);
+                        self.crawl($,depth_level);
+                    }).catch(function(err) {
+                        console.log(err);
                     });
                 }
                 else
                 {
-
                     self.assert(URL,"Failure");
                 }
             });
         }
     }
 
-    crawl($,current_page,depth_level)
+    crawl($,depth_level)
     {
         var self=this;
         if(depth_level)
@@ -111,7 +114,7 @@ class Spider
                     }
                 });
                 
-                self.parser.search($,self.search_word,current_page,self.search_word);
+                self.parser.search($,self.search_word);
                 while( !(self.set_q.isEmpty) )
                 {
                     let link = self.set_q.dequeue();

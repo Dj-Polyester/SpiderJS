@@ -59,14 +59,12 @@ class Parser
     }
 
     //find instance(s) of a word
-    search($,instance,current_page,key)
+    search($,key)
     {
         var domstr = $.text();
         var pattern = new RegExp(key,"gi");
         let count = ((domstr.match(pattern)) || []).length
         
-        
-
         if(count)
         {
             fs.appendFile("logs/"+this.domain+"/"+key+this.fileformat, ` : Found ${count} instance(s)`, (err) => {
