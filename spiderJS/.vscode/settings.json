@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.desktop": "shellscript",
+        "gdk.h": "c",
+        "cstdlib": "c",
+        "signals.h": "c"
+    },
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+}

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm -rf logs/*
+cat var.json.template > var.json
+rm -f var.json.template

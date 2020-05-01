@@ -20,14 +20,9 @@ class Parser
         this.total=0;
         
     }
-    setup(URL)
+    setup(file)
     {
-        this.domain = url.parse(URL).host.split(".")[0];
-        fs.readFile('var.json', (err, data) => {
-            if (err) throw err;
-            let variables = JSON.parse(data);
-            this.fileformat = variables["FILEFORMAT"];
-        });
+        this.file=file;
     }
     //taken from https://stackoverflow.com/a/19709846/10713877
     is_absolute(url)
@@ -67,7 +62,7 @@ class Parser
         
         if(count)
         {
-            fs.appendFile("logs/"+this.domain+"/"+key+this.fileformat, ` : Found ${count} instance(s)`, (err) => {
+            fs.appendFileSync(this.file, ` : Found ${count} instance(s)`, (err) => {
                 if (err) throw err;
             });
             process.stdout.write(` : Found ${count} instance(s)`);

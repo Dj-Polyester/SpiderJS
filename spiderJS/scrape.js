@@ -47,7 +47,7 @@ function isIn(alist,val)
 {
     for(let item of alist)
     {
-        if(item==val) 
+        if(item===val) 
             return true;
     }
     return false;
@@ -55,22 +55,44 @@ function isIn(alist,val)
 
 function Search(url, word)
 {
-    fs.readFile('var.json', (err, data) => {
-        if (err) throw err;
-        let variables = JSON.parse(data);
-        
-        if (!isIn(variables["LINKS"],url)) 
-        {
-            variables["LINKS"].push(url);
-            fs.writeFileSync('var.json', JSON.stringify(variables));
-        } 
-    });
+    let variables = JSON.parse(fs.readFileSync('var.json'));
+    if (!isIn(variables["LINKS"],url)) 
+        variables["LINKS"].push(url);
+    
+    if (!isIn(variables["KEYS"],word)) 
+        variables["KEYS"].push(word);
+    
+    fs.writeFileSync('var.json', JSON.stringify(variables));
+    
     const spider= new Spider(url,DEPTH,parser);
     spider.start(word);
     
+    
+}
+
+
+async function unmade()
+{
+    const srch = Search(process.argv[2],process.argv.slice(3).join(" "));
+
+
+    const print = console.log(parser.total)
+     
 }
 
 Search(process.argv[2],process.argv.slice(3).join(" "));
+
+process.on('exit', function () {
+    //process.stdout.write(`\n${parser.file}\n`);
+    fs.appendFileSync(parser.file, `\nFound ${parser.total} total`, (err) => {
+        if (err) throw err;
+    });
+    process.stdout.write(`\nDone!\nFound ${parser.total} total\n`);
+  });
+
+
+
+
 
 
 

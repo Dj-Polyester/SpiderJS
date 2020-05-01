@@ -14,28 +14,37 @@ class Spider
         this.url=url;
         this.set_q=new set_queue;
         this.parser=parser;
+        
     }
     start(search_word)
     {
-        this.parser.setup(this.url)
+        
         this.search_word=search_word;
         this.domain = url.parse(this.url).host.split(".")[0];
         this.dir = 'logs/'+this.domain;
+        
         if (!fs.existsSync(this.dir)){
             fs.mkdirSync(this.dir);
         }
-
-        fs.readFile('var.json', (err, data) => {
-            if (err) throw err;
-            let variables = JSON.parse(data);
-            this.fileformat = variables["FILEFORMAT"];
+        
+        let variables = JSON.parse(fs.readFileSync('var.json'));
+        this.fileformat = variables["FILEFORMAT"];
+        
+        if(this.fileformat===undefined)
+        {
+            process.stdout.write("Fileformat is undefined");
+            process.exit(1);
+        }
+        this.file=this.dir+"/"+this.search_word+this.fileformat;
+        fs.writeFile(this.file, '', function(){
+            process.stdout.write(`Searching for ${search_word}\n`);
         });
- 
+        this.parser.setup(this.file);
         this.send_request(this.url,this.depth);
     }
     assert(URL, word)
     {
-        fs.appendFile(this.dir+"/"+this.search_word+this.fileformat, `\n${word}: ${URL}`, (err) => {
+        fs.appendFileSync(this.file, `\n${word}: ${URL}`, (err) => {
             if (err) throw err;
         });
         process.stdout.write(`\n${word}: ${URL}`);
@@ -65,7 +74,7 @@ class Spider
             var options = {
                 url: URL,
                 headers: {
-                  'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0'
+                  'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:75.0) Gecko/20100101 Firefox/75.0'
                 }
               };
           
@@ -77,11 +86,8 @@ class Spider
 
                     const $ = cheerio.load(html);
 
-                    return Promise.resolve().then(()=> {
-                        self.crawl($,depth_level);
-                    }).catch(function(err) {
-                        console.log(err);
-                    });
+                    
+                    self.crawl($,depth_level);
                 }
                 else
                 {
