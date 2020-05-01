@@ -6,8 +6,8 @@ size_t file_count(FILE* fptr)
 	size_t count=0;
 	
 	if(fptr==NULL) {
-		printf("File can't be created\a");
-		exit(0);
+		printf("File can't be opened\n");
+		exit(1);
 	}
 	while((ch=fgetc(fptr))!=EOF)
 		count++;
@@ -69,8 +69,25 @@ void
 on_search_clicked (GtkComboBox *widget,
                Application* user_data)
 {
-    // const gchar* url=gtk_entry_get_text (user_data->url_entry);
-    // g_print("url:%s\n",url);
-    // const gchar* word=gtk_entry_get_text (user_data->word_entry);
-    // g_print("word:%s\n",word);
+    const gchar* url=gtk_entry_get_text (user_data->url_entry);
+    const gchar* word=gtk_entry_get_text (user_data->word_entry);
+    init_spider(url,word);
+}
+
+void init_spider(const gchar* url, const gchar* word)
+{
+    gchar* command[20];
+    sprintf(command,"node src/scrape.js %s %s",url,word);
+    //g_print("%s",command);
+    FILE *fp;
+
+    /* Open the command for reading. */
+    fp = popen(command, "w");
+    if (fp == NULL) {
+      printf("Failed to run spider\n" );
+      exit(1);
+    }
+
+    /* close */
+    pclose(fp);
 }

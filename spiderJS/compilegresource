@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+
+cd ui
+if [ -f ../src/theme.c ]; then
+    rm -f ../src/theme.c ../src/canvas.c
+fi
+if [ -f ../include/theme.h ]; then
+    rm -f ../include/theme.h ../src/canvas.h
+fi
+glib-compile-resources --target=../src/app.c --generate-source app.gresource.xml
+glib-compile-resources --target=../include/app.h --generate-header app.gresource.xml
+# glib-compile-resources --target=../src/theme.c --generate-source theme.gresource.xml
+# glib-compile-resources --target=../include/theme.h --generate-header theme.gresource.xml
+cd ..

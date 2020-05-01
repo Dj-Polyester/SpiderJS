@@ -10,6 +10,7 @@ typedef struct json_object JSON_object;
 typedef struct application
 {
     GtkBuilder* builder;
+    GtkCssProvider* cssProvider;
     GtkWidget* window;	
     GtkWidget* terminal;	
     GtkWidget* frame;	

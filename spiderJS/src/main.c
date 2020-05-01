@@ -18,8 +18,11 @@ int main(int argc, char **argv)
     app.key_list_store		= GTK_WIDGET(gtk_builder_get_object(app.builder, "key_list_store"));
     app.frame       = GTK_WIDGET(gtk_builder_get_object(app.builder, "frame"));
     
-    app.terminal = vte_terminal_new ();
-    gtk_container_add (app.frame, app.terminal);
+    app.cssProvider = gtk_css_provider_new();
+  	gtk_css_provider_load_from_resource(app.cssProvider, "/ui/theme.css");
+  	gtk_style_context_add_provider_for_screen(gdk_screen_get_default(),
+                               GTK_STYLE_PROVIDER(app.cssProvider),
+                               GTK_STYLE_PROVIDER_PRIORITY_USER);
 
     connect_signals();
     read_json();

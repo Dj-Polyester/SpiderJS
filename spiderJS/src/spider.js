@@ -53,23 +53,23 @@ class Spider
     send_request(URL,depth_level)
     {
         var self=this;
-        if(this.parser.is_local(URL))
-        {
-            var url_tmp=undefined;
-            if(URL.slice(0,7)==="file://")
-                url_tmp = URL.slice(7,URL.length);
-            else
-                url_tmp = URL;
+        // if(this.parser.is_local(URL))
+        // {
+        //     var url_tmp=undefined;
+        //     if(URL.slice(0,7)==="file://")
+        //         url_tmp = URL.slice(7,URL.length);
+        //     else
+        //         url_tmp = URL;
             
-            if (url_tmp===undefined) {
-                console.log("Error: url_tmp is undefined\nat Spider.send_request (/home/polyester/Desktop/Programming/SpiderJS/spiderJS/spider.js:56:43)")
-            } else {
-                //taken from https://stackoverflow.com/a/20665078/10713877
-                const $ = cheerio.load(fs.readFileSync(url_tmp));
-                self.crawl($,depth_level);
-            }
-        }
-        else
+        //     if (url_tmp===undefined) {
+        //         console.log("Error: url_tmp is undefined\nat Spider.send_request (/home/polyester/Desktop/Programming/SpiderJS/spiderJS/spider.js:56:43)")
+        //     } else {
+        //         //taken from https://stackoverflow.com/a/20665078/10713877
+        //         const $ = cheerio.load(fs.readFileSync(url_tmp));
+        //         self.crawl($,depth_level);
+        //     }
+        // }
+        // else
         {
             var options = {
                 url: URL,

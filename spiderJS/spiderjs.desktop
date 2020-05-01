@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0.3
+Name=SpiderJS
+Comment=Search instances of a word.
+Exec=$HOME/spiderjs/main
+Icon=$HOME/spiderjs/data/1024x1024/spider.png
+Terminal=false
+Type=Application
+Categories=Utility;Development;

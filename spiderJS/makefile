@@ -21,8 +21,7 @@ $(MAIN): $(OBJ)
 	$(CC) $^ -o $@  $(CFLAGS) $(GTK) $(LIBS)
 
 gresource:
-	glib-compile-resources --target=$(SRCDIR)/app.c --generate-source app.gresource.xml
-	glib-compile-resources --target=$(INCDIR)/app.h --generate-header app.gresource.xml
+	./compilegresource
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c 
 	$(CC) -c $^ -o $@ $(CFLAGS) $(GTK)
