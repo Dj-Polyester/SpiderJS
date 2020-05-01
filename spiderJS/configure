@@ -1,5 +1,6 @@
 #!/bin/bash -x
 make clean
+mkdir obj
 chmod a+x compilegresource
 chmod a+x bin/spiderjs
 rm -rf logs/*
