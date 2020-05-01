@@ -10,3 +10,7 @@ until the given tree depth, by the user.
 **v1.0.1** Spider can also crawl in local files (relative-absolute independent).
 
 **v1.0.2** External data is accumulated in a single json file (neater)
+
+**v1.0.3** UI added (latest stable)
+
+In order to use: `./configure && make && ./main`
