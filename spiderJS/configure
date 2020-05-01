@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/bash -x
+make clean
 chmod a+x compilegresource
 chmod a+x bin/spiderjs
 rm -rf logs/*
