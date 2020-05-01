@@ -1,5 +1,5 @@
 
-<img src="spiderJS/spider.png" alt="" width="300"/>
+<img src="spiderJS/data/256x256/spider.png" alt="" width="300"/>
 
 # SpiderJS
 A simple web crawler that looks for instances of a given word (search engine imitation)
